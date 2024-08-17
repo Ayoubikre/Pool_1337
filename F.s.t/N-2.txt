@@ -1,0 +1,84 @@
+
+<<
+
+teminal command :
+    nnn | ncdu | curl wttr.in/tetouan | weget | ascii | Z
+
+<<
+                        .................................<<
+
+<<
+
+share info by ip betweeen two linux system :
+
+                nc 100.100.45.105 80 < echo Qk_YpH#WT#m44z4KU
+
+>>
+
+                        .................................<<
+
+<<
+
+tmux vim:
+
+    tmux ls  /   tmux kill-session -t 1   /   tmux attach -t 1    /   tmux detach   / tmux new -s ikr   /  ctrl b + % 'V'  /  ctrl b + o 'switch' /
+                                              tmux a      -t 1        ctrl b + d                        /  ctrl b + " 'H'  /
+>>
+
+                        .................................
+
+<<
+
+honeygains start :
+
+     sudo docker run -dlamyae honeygain/honeygain -tou-accept -email ayoubikrr@gmail.com -pass ayoubikre123 -device ayoubikr
+    # sudo docker ps -a
+    # sudo docker stop 5cae33d9409a
+
+>>
+                        .................................
+
+<<
+
+lol driver intel Removal
+
+It's strongly recommended to remove this PPA before upgrading to a newer Ubuntu release or using another mesa PPA.
+
+    # sudo apt install ppa-purge
+    # sudo ppa-purge ppa:kisak/kisak-mesa
+
+>>
+
+                        .................................
+
+<<
+
+install xmapp in ubuntu
+
+     chmod +x xampp-linux-x64-8.0.28-0-installer.run
+     sudo ./xampp-linux-x64-8.0.28-0-installer.run
+     sudo /opt/lampp/manager-linux-x64.run
+
+    sudo /opt/lampp/lampp start
+    sudo /opt/lampp/lampp stop
+    sudo /opt/lampp/lampp restart
+
+
+>>
+
+                        .................................
+
+<<
+
+to give perment pirision to modifie a folder to me from root
+
+    # sudo setfacl -R -m u:ayoubikr:rwX /opt/lampp/htdocs/my_website
+
+>>
+
+                        .................................
+
+                            hostinger / who is.com
+
+
+

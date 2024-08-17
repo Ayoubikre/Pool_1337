@@ -1,0 +1,596 @@
+    **********************  chapitre 3 *********************
+
+null        :  cd / gedit  / mv / touch / locate /pwd
+
+chattr      :    make immune to delet or rename
+                        +a /home/groupe1
+
+cat / tac   :   *******
+                        -n: show the number of each line
+                        -e: remove \0 from the end of string
+
+
+cp          :   *******
+                        -r: copier folders and all it contents too
+
+
+ln          :   *******
+                        -s: creat a symbolic file of the target
+
+
+sed         :
+                        -n: choose the start lane and value of skiping   -->  sed -n '2~2p'
+
+                        * : repace ',' withe ',k'    sed 's/,$/,k/g'    --- add   $   to replace somthinf in end of the string
+                                                                        --- add   g   to replace all accurence of the objct
+
+
+
+tr          : replace a char to a new one
+                        -d: delet
+                        -s: remove repetaion
+                   ***** | tr " " ","
+
+
+head / tail :   *******
+                        -n: the number of line we want to show
+
+
+truncate    :  modify the size of file by adding or removing byte
+                    truncate -s +2 test1    /    truncate -s -5 test1
+
+
+mkdir/rmdir :   mkdir / rmdir -p ds1/ds2/ds3
+                        -p: shortcut to creat/del a groups of folders inside each other
+
+
+rm          :   *******
+                        -r: remove the folder that not empty
+                        -i: ask for confirmation
+                        -f: dont ask for a comfirmation
+
+
+ls          :   *******
+                        -l: format long
+                        -R: detail inside folders
+                        -i: innods
+
+                        -d: affichage des noms des objets et non de leurs contenus
+                        -F: affichage des objets avec un suffixe designant le type de l'objet
+                        -a: affichage des objets dont les noms commencent par " . " <les caches>
+
+
+grep         :   grep -l "test" file1
+                        -n: add the line number to the search results
+                        -i: to ignotr the lower / upper case diff
+                        -H: add thr file names to the search results
+                        -l: show only the files names where the results exicte
+
+                        -c: show the number of time the resulet is repeted
+                        -v: show the lines that dont have the results
+                        -r: give the result that inside other folders that exit in the current location like "bureau"
+
+
+sort         :   sort -o N_file2 file1
+
+                 sort -t ; -k 3 file 1
+
+                 sort  file1
+
+                     -t -k: just like grep but sort
+                          : sort on order alphabitile
+                        -r: sort en order inverse
+                        -R: sort randomly
+                        -n: sort numbers
+                        -o: copier the ruluts to a new file
+                        -f: lowe case to upper case
+
+
+wc           :   words counts
+                        -l: show the total lignes numbers
+                        -w: show the total words numbers
+                        -c: show the total numbe d'octer
+
+
+uniq         :   remove the dublucation
+                        -c: count how mutch each name is duplicated
+                        -d: show onlu the duplicated names
+                        -i: remove the upper/lower cass diff
+
+
+cut          :   cut  -d ";"  -f 3      file1
+                        -c: couper selon the nombre de caracters
+                        -d: add the pomctuatuation
+                        -f: add the culume number after
+
+
+find       :   find /home/ikr  -name file   -size +3   .......   -delete
+               find /home/ikr  -name file   printf("%p : &s ko and the user is &u \n")
+
+                        -iname  : enter the file name  / i for the lower&upper cases
+                        -size   : enter the file size  +5K / +5K 'mega or octer'
+                        -atime  : enter the time filter +1 / -1 .....     " enter2 only"
+                        -ctime  : enter the time filter +1 / -1 .....     " modifier "
+                        -type d : only searsh for folders
+                        -type f : only search for files
+                        -delete  : delet the results
+                        -printf : %p file route / %s file size /%u user who own it
+                           *    : to indicate it dosent matter whatt after or befor
+                        -exec   : exiut another command after finding the files
+
+
+
+awk       :     awk -f {print $2} file1
+                awk -F ";" {print $3} file1
+                awk 'NR%2==0' --> print line N 2,4,6,...
+
+
+    **********************  chapitre 4 *********************
+
+ADD USER    :   sudo useradd -m -s /bin/bash ikr
+                sudo adduser    ikr  "it create the Gr too "
+
+
+DELET user  :   sudo userdel -r ikr
+
+
+ADD group   :   sudo groupadd  ikrg
+
+DELET group :   sudo groupdel  ikrg
+
+
+/etc/passwd :   list of users
+
+/etc/group  :   list of groups
+
+/etc/shadow :   list of the user passwords
+
+usermod     :   modifie the user created
+                        -u : specfi the UID
+                        -g : default group
+                        -G : secondair groups
+                        -c : add comments
+                        -e : add date d'expiration
+                        -s : indique the shell "/bin/bash"
+                        -d : repertoir "/home/user"
+                        -m : dossir personell
+
+passwd      :   add a password to a new user
+
+groups / id  :   show info of a user
+                " groups ikr " / " id ikr "
+
+gpasswd     :   add/del the  user to a group
+                " sudo gpasswd -a ikr math "
+                " sudo gpasswd -d ikr math "
+
+chmod       :   permision    " sudo chmod 661 file "  / " sudo chmod u+x file "
+
+                --> rw-/rw-/--x -->  110 / 110 / 001  --> 661
+
+                --> u+' r|w|x '  &   g+' r|w|x '  &   o+' r|w|x '  &  u = r + w + o
+
+                    r :
+
+                    File: Allows reading the file's content.
+                    Directory: Allows listing the contents of the directory.
+
+                    w :
+
+                    File: Allows modifying the file's content.
+                    Directory: Allows adding, removing, or renaming files within the directory.
+
+                    x :
+
+                    File: Allows executing the file if it is a program or script.
+                    Directory: Allows accessing the contents of the directory.
+
+
+chown      :     change the file user   " chown ikr:sma  file1  "
+                    -R : recursivelt modifier all sub-directories and sub-files
+
+
+chgrp      :     change the file group  " chgrp sma file1 "
+                    -A : change authorizaion for files in sub-directories of the dierctory
+                    -c : change authorization for each file
+
+umask      :     the intial permision - umask    "  umask -S  "
+                    ex for DR : 777 - 002 = 775 = rwx / rwx / r-x
+                    ex for Files : 666 - 002 = 664 = rw- / rw- / r--
+
+
+acl        :     share files betwwen users without the admin prev
+
+                    setfacl  : " setfacl -m    u/g/o : user/group/other : permision   file1 "
+
+                                -m : modify the acl of a file or directory
+                                -x : remove acl
+                                -b : remove-All acl
+                                -R : recursive
+
+                    getfacl  : " getfacl -R file "
+
+                                -R : viw acl recursively
+                                -L : folow symboliq links
+
+sudo -i    :     switch to root
+
+
+ssh-keygen :     creat a ssh key , " public with.pub  and privet with nothing "
+                -t  : rsa                #type
+                -b  : 4096               #size
+                -C  : "test@gmail.com"   #email
+
+
+
+
+    **********************  chapitre 5 *********************
+
+ps         :     find the current procecs runningin the background
+                        -p : pour des PID precis
+                        -f : pour avoir plus d'information
+                        -e : donne des informaations sur tous les proccessus en cours du systene
+                        -g :pour les groupes de processus
+
+                        -o : permet de selctioner la format d'affichage dans l'ordere we want
+                        -u : permet de preciser une liste d'un ou plusieurs utilisateurs separes
+
+kill       :     kill the proceces by ' pid ' not ' ppid '
+
+pidof      :     show the id of a process
+
+pstree     :     show the tree of the process
+
+re/nice       :     changer la prioriter
+                    " nice -5 xclock "
+
+jobs       :     show running jobs like xclock
+
+etat de PR :     <<<< running backgr. >>>>        ← ←      pg      ← ←          <<<< stopped backgr. >>>>
+
+
+                                    ↓↓ fg / & ↑↑                        ↓↓ fg / ctrl+Z ↑↑
+
+
+                                               <<<< running front >>>>
+
+                                                          ↓
+
+                                                      ctrl + C
+
+                                                          ↓
+
+                                                 <<<<    dead    >>>>
+
+
+
+    **********************  chapitre 6 *********************
+
+
+     > 1> : send good result , whle delting the file content
+
+       2> : send errors result , whle delting the file content  "/dev/null"
+
+   >> 1>> : send good result , whle kepping the file content
+
+      2>> : send errors result , whle kepping the file content  "/dev/null"
+
+       << : send back results to terminal
+
+       |  : envoyer reultas to the next commend
+
+(  ; ;  ) : perment de exuter plusier de commend  , separe avec ;
+{. ; ; ;} :        the same                       , separer start=" " middle=" ; " end=" ; "
+
+
+
+    **********************  chapter 8 *********************
+
+grep    :
+            -E :include reguler expression
+            grep -E '[a-zA-Z\._]+[0-9]*@[a-zA-Z]+[0-9]*' Clients
+
+                + neeed atlest 1 accurence
+                * dont need it
+
+                    grep -E ' [a-zA-Z0-9]+@ 'rs
+
+
+
+
+
+    ***********************  Bash  ***********************
+
+                    "   .  "  ==  "  espace nesecaire  "
+
+ start of the script:
+                        #!bin/bash
+
+    ' '  / " "      :
+                       echo 'hi $name' ---> hi $name
+
+                       echo "hi $name" ---> hi ayoub
+
+calculate numbers :
+                        x=5  "no espace ,even with world ,caus we are creating a var"
+
+                        y=1
+                        echo.$(($x+$y))
+
+                        echo."hi"
+
+write comments + var :
+                        read -p "this is a comment :".name
+                        echo "$name"
+
+
+add escape car " \ " :
+                        read -p "how mutch mony you have :" mony
+                        echo "i have this amount of mony \$$name"
+
+if / else statement  :
+                        if [."$pass".=."ayoub.] "espace caus we are comparing values"
+
+                        then
+                            echo "welcome $name"
+                        else
+                            echo "byby $name"
+                        fi
+
+compar Num <  >  >=  :          use (( ))
+                        if (( "$mony" > "5" ))
+                        then
+                            echo "not bad"
+                        else
+                            echo "broke"
+                        fi
+
+compar leter <  >  >=  :        use [[ ]]
+                        if [[ "$mony" > "5" ]]
+                        then
+                            echo "not bad"
+                        else
+                            echo "broke"
+                        fi
+
+    and \ or          :
+                        &&  \  ||
+
+    for loop          :
+                        for ((i = 10; i >= 0; i -=1))
+                        do
+                            read -p " what your name" $name
+                            read -p " what your score" $score
+                            echo $score > test1/$name
+
+                                # creat a file withe my name and insert my score 3 time in arow
+
+                        done
+
+    case               :
+                         $name="ayoub"
+
+                         case $name in
+
+                                "ayoub")
+                                    echo " you are in "
+                                ;;
+
+                                "amin")
+                                    echo "you are not "
+                                ;;
+
+                                *)
+                                    echo " unknown "
+                                ;;
+
+                         esac
+
+
+    select             :
+                        select sys in "win" "mac" "linux
+                        do
+                            echo "vous selecter " $sys
+                            break
+                        done
+
+
+    function           :
+                         grade() {
+                                read -p " what your name" $name
+                                read -p " what your score" $score
+                                echo $score > test1/$name
+
+                                    local x = "hi"
+                         }
+
+                        for x in {1..3}
+                        do
+
+                            grade()
+
+                        done
+
+
+    arrays              :
+                          list=( one two three four )
+
+                          echo " the list is : ${list[@]}   /  echo ${list[2]} "
+
+
+
+    until == do while   :
+                            until .....
+                                do
+                                    ....
+                            done
+
+
+
+
+
+
+                    **********************  git  **********************
+
+
+**  lvl -0  :     gh auth login
+                        --> connect your local pc to github to  " creat repo. from terminal /...... "
+
+   lvl -0.1 :     gh repo create test_1  --public / --private
+                        --> creat a repo from terminal in github
+
+   lvl -0.2 :     gh repo delete test_1  --yes
+                        --> delete a repo from terminal in github / --yes : so they dont ask fir confirmation
+
+   lvl -0.3 :     ssh-keygen -t rsa -b 4096 -C "ayoubikrr@gmail.com"  | eval "$(ssh-agent -s)" | ssh-add ~/.ssh/id_rsa
+                        --> creat a ssh key | add it to the ssh agent  "the first part is the necessery one"
+
+
+
+
+**  lvl 0   :     git init
+                        --> creat git repo to track change
+
+
+
+
+**  lvl 1   :     git status
+                        --> see the status of files
+
+
+
+
+**  lvl 2.1 :     git add t.pdf
+                        --> add the file to the staging area
+                        --> -A : push all the file in current dir
+
+    lvl 2.2 :     git reset
+                        --> remove all files from the staging area
+
+
+
+
+**  lvl 3.1 :     git commit -m "......."
+                        --> commit the file to the git repo to get traked
+
+    lvl 3.2 :     git log
+                        --> get the log of all thecommit that happen
+
+    lvl 3.3 :     git revert "210dnbdb....."
+                        --> if you want to undo the changes introduced by a specific commit (let's call it Commit B), you use the commit ID of Commit B to revert back to the state before Commit B was applied.
+
+    lvl 3.4 :     git reset "210dnbdb....."
+                        --> if you want to reset your branch entirely to a specific commit (let's call it Commit A) and remove all commits that came after Commit A
+
+
+
+
+**  lvl 4.1 :     git remote -v
+                        --> check the remot repo you are connect it too if not ...
+
+    lvl 4.2 :     git remote add origin git@github.com:Ayoubikre/pool.git
+                        --> connect to github repo
+
+    lvl 4.3 :     git remote remove origin
+                        --> remove 4.2
+
+
+
+
+**  lvl 5.1 :     git pull origin master
+                        --> pull from remote repo
+
+    lvl 5.2 :     git push origin master
+                        --> push to a remote repo
+
+
+
+
+**  lvl 6.1 :     git branch test1
+                        --> creat a branch named test_1
+
+    lvl 6.2 :     git branch -a
+                        --> check all the  remotes branchs that existe in the repo and the one i am connected too
+
+    lvl 6.3 :     git checkout test_1
+                    --> change from master breach to test 1 branch to push file in it
+
+    lvl 6.4 :     git branche --merged
+                    --> see all the branchsthat got mergd withe master , aka if it show it mean its uselse now if not we need to mergd it
+
+    lvl 6.5 :     git merge test_1
+                    --> merge the test1 branch withe master branch
+
+    lvl 6.5 :     git branche -D test1
+                    --> delet branch named test_1 localy
+
+    lvl 6.6 :     git push origin --delet test_1
+                    --> delet branch named test_1 on github
+
+
+
+
+**  lvl 7.1 :     git clone
+                    --> clone from local repo
+                        --> git clone ~/test.git ./clone_her
+
+                    --> clone dir from github using link or ssh
+                        --> link : https://github.com/Ayoubikre/pool.git
+                        --> ssh  :     git@github.com:Ayoubikre/pool.git
+
+    lvl 7.2 :     git diff
+                        --> check the diffrence betwen 2 files
+                        --> or betwen 2 past commits by adding ids
+
+
+
+*** work floow :
+                        git innit                           / git clone git@...
+                        git remote add origin git@....      /
+                        git remote -v                       /
+                                                    git status
+                                                    git add -A
+                                                    git commit -m ".."
+                                                    git status
+                                                    git push origin master
+                                                    git status
+                                                    git branch bb
+                                                    git branch -a
+                                                    git checkout bb
+                                                    git checkout master
+                                                    git fetch origin
+                                                    git merge bb
+                                                    git revert -m 1 "21ah92f..."
+
+
+
+                    **********************  makefile **********************
+
+    CC = gcc
+
+    CFLAGS = -Wall -Wextra -std=c11
+
+    SRCS = t.c fun.c
+    HDRS = fun.h
+    TARGET = t
+
+    all: $(TARGET)
+    $(TARGET): $(SRCS) $(HDRS)
+        $(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
+
+    clean:
+        rm -f $(TARGET)
+
+    .phony: all clean
+
+
+                    ********************** mini moulinnet **********************
+
+cd ~
+git clone https://github.com/khairulhaaziq/mini-moulinette.git
+
+echo "alias mini='~/mini-moulinette/mini-moul.sh'" >> ~/.zshrc && source ~/.zshrc          : zsh
+echo "alias mini='~/mini-moulinette/mini-moul.sh'" >> ~/.bashrc && source ~/.bashrc        : bash
+cd C02
+
+                    **********************   **********************

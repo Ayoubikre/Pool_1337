@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "random": "c",
+        "limits": "c",
+        "stdlib.h": "c"
+    },
+    "terminal.integrated.accessibleViewFocusOnCommandExecution": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "C_Cpp.errorSquiggles": "disabled",
+    "cSpell.words": [
+        "etudient",
+        "moyen"
+    ]
+}
