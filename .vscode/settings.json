@@ -11,5 +11,9 @@
     "cSpell.words": [
         "etudient",
         "moyen"
-    ]
-}
+    ],
+    
+    "[c]": {
+      "editor.defaultFormatter": "keyhr.42-c-format"
+    }
+  }
