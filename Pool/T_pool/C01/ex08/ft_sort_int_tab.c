@@ -6,13 +6,11 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:49:58 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/02 17:52:03 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/02 17:57:22 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-                    /* https://www.geeksforgeeks.org/insertion-sort-algorithm/ */
+            /* https://www.geeksforgeeks.org/insertion-sort-algorithm/ */
 
 //
 //
