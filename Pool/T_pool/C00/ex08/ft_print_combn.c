@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 00:16:18 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/02 02:36:06 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/02 02:37:21 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putnbr(int s, int n);
 
 // int	main(void)
 // {
-// 	ft_print_combn(9);
+// 	ft_print_combn(3);
 // }
 
 void	ft_print_combn(int n)
