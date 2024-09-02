@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 00:16:18 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/02 01:07:08 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/02 02:36:06 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putnbr(int s, int n);
 
 // int	main(void)
 // {
-// 	ft_print_combn(2);
+// 	ft_print_combn(9);
 // }
 
 void	ft_print_combn(int n)
@@ -38,7 +38,7 @@ void	ft_print_combn(int n)
 	{
 		if (ft_check(start) == 0)
 		{
-			if (start < s)
+			if (start < s && n != 1)
 			{
 				write(1, "0", 1);
 				ft_putnbr(start, n);
