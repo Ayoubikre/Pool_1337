@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 01:22:31 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/03 18:23:03 by Noctis           ###   ########.fr       */
+/*   Created: 2024/09/03 16:49:31 by Noctis            #+#    #+#             */
+/*   Updated: 2024/09/03 17:02:45 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+int	main(int c, char **t)
 {
-	while (*str)
-		write(1, str++, 1);
+	if (c < 1)
+		return (0);
+	while (*t[0])
+	{
+		write(1, t[0], 1);
+		t[0]++;
+	}
+	write(1, "\n", 1);
+	return (0);
 }
