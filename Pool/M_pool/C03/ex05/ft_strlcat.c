@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:11:25 by aakritah          #+#    #+#             */
-/*   Updated: 2024/09/06 05:38:51 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/06 05:42:48 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
     while (dest[s2])
         s2++;
         
-
     if(size <= s2)
-        return (s1 + size);
+		return (s1 + size);
     
 	i = 0;
 	while(src[i])
