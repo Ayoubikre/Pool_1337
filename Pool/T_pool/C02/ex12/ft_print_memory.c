@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 01:07:25 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/08 05:50:14 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/08 05:57:20 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void	ft_p1(void *addr)
+void	ft_addres(void *addr)
 {
 	char		buffer[18];
 	uintptr_t	adr2;
@@ -42,7 +42,7 @@ void	ft_p1(void *addr)
 	write(1, ": ", 2);
 }
 
-void	ft_p2_2(unsigned char c, int count, int i, int flag)
+void	ft_p(unsigned char c, int count, int i, int flag)
 {
 	int	k;
 
@@ -71,7 +71,7 @@ void	ft_p2_2(unsigned char c, int count, int i, int flag)
 	}
 }
 
-void	ft_p2(char *t, void *addr, unsigned int size)
+void	ft_hexa(char *t, void *addr, unsigned int size)
 {
 	unsigned int	i;
 	int				count;
@@ -86,17 +86,17 @@ void	ft_p2(char *t, void *addr, unsigned int size)
 			t[i] = '.';
 		else
 			t[i] = (char)adr2[i];
-		ft_p2_2((unsigned char)adr2[i], 0, 0, 0);
+		ft_p((unsigned char)adr2[i], 0, 0, 0);
 		count++;
 		if (count % 2 == 0)
 			write(1, " ", 1);
 		i++;
 	}
 	t[i] = '\0';
-	ft_p2_2(' ', count, i, 1);
+	ft_p(' ', count, i, 1);
 }
 
-void	ft_p3(char *addr)
+void	ft_string(char *addr)
 {
 	while (*addr)
 		write(1, addr++, 1);
@@ -109,9 +109,9 @@ void	*ft_print_memory(void *addr, unsigned int size)
 
 	if (size == 0)
 		return (addr);
-	ft_p1(addr);
-	ft_p2(t, addr, size);
-	ft_p3(t);
+	ft_addres(addr);
+	ft_hexa(t, addr, size);
+	ft_string(t);
 	if (size > 16)
 	{
 		size -= 16;
