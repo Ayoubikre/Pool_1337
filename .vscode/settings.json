@@ -9,8 +9,9 @@
     "terminal.integrated.defaultProfile.linux": "zsh",
     "C_Cpp.errorSquiggles": "disabled",
     "cSpell.words": [
-        "etudient",
-        "moyen"
+      "etudient",
+      "moyen",
+      "putnbr"
     ],
     
     "[c]": {
