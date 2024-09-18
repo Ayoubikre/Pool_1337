@@ -655,6 +655,11 @@ NOTES :
         wildcard == name_dont_matter == *
            @     == run the code but dont type it in the terminal, show the results only
         .c = .o  == substitut all .c suffic withe .o  than creat after in the   %.o: %.c  Rule
+        gcc -E   ==   generat the preprasessor file and stop
+        gcc -S   ==   generat the assmbly file and stop
+        gcc -c   ==   genereat the object file and stop 
+            -o   ==   The flag specifies the output file name.
+     
 
 $(cc) $(cflags) -c -o $@ $^ -I $(INCS) :
 
