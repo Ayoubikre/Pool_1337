@@ -1,4 +1,27 @@
-    **********************  chapitre 3 *********************
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*                Shell / Bash                          :+:      :+:    :+:   */
+/*                  Commands                          +:+ +:+         +:+     */
+/*                                                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/17 11:12:14 by Noctis            #+#    #+#             */
+/*   Updated: 2024/09/17 13:11:13 by Noctis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+1. Shell Commands :
+2. Root / User / Permission :
+3. ID / Process :
+4. Pile / Rederction :
+5. Bash Commands :
+6. Github :
+7. MakeFile :
+8.
+
+
+________________________________   1. Shell Commands :  ________________________________
+
 
 null        :  cd / gedit  / mv / touch / locate /pwd
 
@@ -70,7 +93,15 @@ grep         :   grep -l "test" file1
                         -v: show the lines that dont have the results
                         -r: give the result that inside other folders that exit in the current location like "bureau"
 
+                        -E :include reguler expression
+                        grep -E '[a-zA-Z\._]+[0-9]*@[a-zA-Z]+[0-9]*' Clients
+            
+                            + neeed atlest 1 accurence
+                            * dont need it
 
+                                grep -E ' [a-zA-Z0-9]+@ 'rs
+
+            
 sort         :   sort -o N_file2 file1
 
                  sort -t ; -k 3 file 1
@@ -125,7 +156,8 @@ awk       :     awk -f {print $2} file1
                 awk 'NR%2==0' --> print line N 2,4,6,...
 
 
-    **********************  chapitre 4 *********************
+
+________________________________  2. Root / User / Permission :  ________________________________
 
 ADD USER    :   sudo useradd -m -s /bin/bash ikr
                 sudo adduser    ikr  "it create the Gr too "
@@ -216,30 +248,23 @@ acl        :     share files betwwen users without the admin prev
 sudo -i    :     switch to root
 
 
-ssh-keygen :     creat a ssh key , " public with.pub  and privet with nothing "
-                -t  : rsa                #type
-                -b  : 4096               #size
-                -C  : "test@gmail.com"   #email
 
+________________________________  3. ID / Process :  ________________________________
 
-
-
-    **********************  chapitre 5 *********************
-
-ps         :     find the current procecs runningin the background
+ps         :     find the current Process runningin the background
                         -p : pour des PID precis
                         -f : pour avoir plus d'information
                         -e : donne des informaations sur tous les proccessus en cours du systene
-                        -g :pour les groupes de processus
+                        -g : pour les groupes de processus
 
                         -o : permet de selctioner la format d'affichage dans l'ordere we want
                         -u : permet de preciser une liste d'un ou plusieurs utilisateurs separes
 
-kill       :     kill the proceces by ' pid ' not ' ppid '
+kill       :     kill the Process by ' pid ' not ' ppid '
 
-pidof      :     show the id of a process
+pidof      :     show the id of a Process
 
-pstree     :     show the tree of the process
+pstree     :     show the tree of the Process
 
 re/nice       :     changer la prioriter
                     " nice -5 xclock "
@@ -264,8 +289,7 @@ etat de PR :     <<<< running backgr. >>>>        ← ←      pg      ← ←  
 
 
 
-    **********************  chapitre 6 *********************
-
+________________________________  4. Pile / Rederction :  ________________________________
 
      > 1> : send good result , whle delting the file content
 
@@ -279,29 +303,19 @@ etat de PR :     <<<< running backgr. >>>>        ← ←      pg      ← ←  
 
        |  : envoyer reultas to the next commend
 
+     ';'  : run commands in the same line withe no relation to the past one 
+
 (  ; ;  ) : perment de exuter plusier de commend  , separe avec ;
 {. ; ; ;} :        the same                       , separer start=" " middle=" ; " end=" ; "
 
 
 
-    **********************  chapter 8 *********************
-
-grep    :
-            -E :include reguler expression
-            grep -E '[a-zA-Z\._]+[0-9]*@[a-zA-Z]+[0-9]*' Clients
-
-                + neeed atlest 1 accurence
-                * dont need it
-
-                    grep -E ' [a-zA-Z0-9]+@ 'rs
 
 
 
+________________________________  5. Bash Commands :  ________________________________
 
-
-    ***********************  Bash  ***********************
-
-                    "   .  "  ==  "  espace nesecaire  "
+                         "  .  "  ==  "  espace nesecaire  "
 
  start of the script:
                         #!bin/bash
@@ -388,7 +402,7 @@ compar leter <  >  >=  :        use [[ ]]
 
 
     select             :
-                        select sys in "win" "mac" "linux
+                        select sys in "win" "mac" "linux"
                         do
                             echo "vous selecter " $sys
                             break
@@ -428,9 +442,7 @@ compar leter <  >  >=  :        use [[ ]]
 
 
 
-
-
-                    **********************  git  **********************
+________________________________  6. Github :  ________________________________
 
 
 **  lvl -0  :     gh auth login
@@ -548,23 +560,27 @@ compar leter <  >  >=  :        use [[ ]]
                         git innit                           / git clone git@...
                         git remote add origin git@....      /
                         git remote -v                       /
-                                                    git status
-                                                    git add -A
-                                                    git commit -m ".."
-                                                    git status
-                                                    git push origin master
-                                                    git status
-                                                    git branch bb
-                                                    git branch -a
-                                                    git checkout bb
-                                                    git checkout master
-                                                    git fetch origin
-                                                    git merge bb
-                                                    git revert -m 1 "21ah92f..."
+                                            git status
+                                            git add -A
+                                            git commit -m ".."
+                                            git status
+                                            git push origin master
+                                            git status
+                                            git branch bb
+                                            git branch -a
+                                            git checkout bb
+                                            git checkout master
+                                            git fetch origin
+                                            git merge bb
+                                            git revert -m 1 "21ah92f..."
 
 
 
-                    **********************  makefile **********************
+________________________________  7. MakeFile :  ________________________________
+                        
+                     // creat a  simple excution file //
+
+# -*- MakeFile -*-
 
     CC = gcc
 
@@ -582,15 +598,113 @@ compar leter <  >  >=  :        use [[ ]]
         rm -f $(TARGET)
 
     .phony: all clean
+                        
+                         ********************
+                        // creat a libft.a  //
+    cc = gcc
+
+    cflags = -Wall -Wextra -Werror
+
+    INCS = includes
+
+    head = $(shell find ./includes -name "*.h" -type f)
+    # head = $(wildcard ./includes/*.h)
+
+    srcs = $(shell find ./srcs -name "*.c" -type f)
+    # srcs = $(wildcard ./srcs/*.c)
+
+    objc = $(srcs:.c=.o)
+
+    target = libft.a
+
+    all: $(target)
+
+    $(target): $(objc)
+        ar rc $(target) $(objc)
+        ranlib $(target)
+    	ar t $(target)
+
+    %.o: %.c $(head)
+        $(cc) $(cflags) -c -o $@ $<   
+    # %.o: %.c
+    #     $(cc) $(cflags) -c -o $@ $^ -I $(INCS)
 
 
-                    ********************** mini moulinnet **********************
+    clean:
+        rm -rf $(objc)
 
-cd ~
-git clone https://github.com/khairulhaaziq/mini-moulinette.git
+    fclean:
+        rm -rf $(objc) $(target)
+    # fclean: clean
+    # 	rm -rf ${target}
 
-echo "alias mini='~/mini-moulinette/mini-moul.sh'" >> ~/.zshrc && source ~/.zshrc          : zsh
-echo "alias mini='~/mini-moulinette/mini-moul.sh'" >> ~/.bashrc && source ~/.bashrc        : bash
-cd C02
+    re:
+        make fclean
+        make all
+    # re: fclean all
 
-                    **********************   **********************
+    .PHONY: all clean
+
+
+NOTES :
+
+ %.o:%.c $(head) == adding $(head) is necessary to track the header change 
+
+        .PHONY   == Specifies that all, clean, and fclean are not actual files but rather targets. 
+                    This prevents make from confusing them with files of the same name and ensures they are always executed.
+        wildcard == name_dont_matter == *
+           @     == run the code but dont type it in the terminal, show the results only
+        .c = .o  == substitut all .c suffic withe .o  than creat after in the   %.o: %.c  Rule
+
+$(cc) $(cflags) -c -o $@ $^ -I $(INCS) :
+
+        $(cc):
+                This is the compiler, typically gcc or clang. It's stored in a variable (cc) for flexibility. This allows you to change the compiler easily by adjusting the value of cc in the Makefile.
+
+        $(cflags):
+                These are the compiler flags. They could include options like -Wall, -Wextra, -Werror, or -std=c11, which control the warnings, standards, and errors during compilation. Like cc, storing this in a variable (cflags) makes it easy to modify compiler settings across the whole project.
+
+        -c:
+                This flag tells the compiler to compile only without linking. It generates an object file (.o) from a source file (.c) but does not attempt to create an executable or library.
+
+        -o:
+                The -o flag specifies the output file name.
+
+        $@:
+                is a special automatic variable in Makefiles that refers to the target of the rule. In this case, it's the .o file being generated (e.g., main.o for main.c).
+
+        $^:
+                is another automatic variable in Makefiles that refers to all the prerequisites of the rule. In the case of a rule like %.o: %.c, this would typically be the .c source file and any additional dependencies (like header files). In most cases, $^ will refer to the .c file being compiled.
+        $<:     
+                same as the last one but refers to the first prerequisite only , which is the .c file 
+
+        -I :
+                -I tells the compiler to include the directory paths for header files during compilation.
+
+        $(INCS):
+                should be a variable that holds the paths to your header files, or specific header files themselves. For example, if your headers are in an includes directory, $(INCS) might contain something like ./includes. This allows the compiler to find and include the correct headers while compiling the source files.
+                    it nessery to add $(head) before to track changes .
+
+1. Using Pattern Substitution with wildcard: 
+srcs = $(wildcard ./srcs/*.c)
+objc = $(srcs:.c=.o)
+
+        $(wildcard ./srcs/*.c) gathers all .c files in the srcs directory.
+        $(srcs:.c=.o) converts each .c file in srcs to its corresponding .o file.
+
+2. Using Directory Variables and wildcard for Recursive Search:
+dirs = srcs
+srcs = $(foreach dir, $(dirs), $(wildcard $(dir)/*.c))
+objc = $(srcs:.c=.o)
+
+            This will find all .c files in the srcs directory.
+            If you have more directories to search in (like srcs/utils, srcs/lib, etc.),
+            you can add them to the dirs list, and foreach will handle gathering .c files from all of them.
+
+
+
+
+
+
+________________________________  8. NEXT :  ________________________________
+.

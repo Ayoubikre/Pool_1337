@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 06:37:49 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/16 05:46:36 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/16 08:55:40 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	**ft_split(char *str, char *charset)
 	t[i] = NULL;
 	return (t);
 }
+
 char	*ft_fix(char *t, char *sp, int s1, int *s2)
 {
 	int	s;

@@ -15,7 +15,10 @@ find . -name "*.o" -type f -delete
                         # explantion :
 
         ;   :   the simicolone let the comands run after each other sepreatly 
-        -c  :   dont link the .o files into one file 
+        -E  :   generat the preprasessor file and stop
+        -S  :   generat the assmbly file and stop
+        -c  :   genereat the object file and stop 
+            :   generat the excutable file 
     ar rc   :   ar - archive
                 r  - replace the .o files withe new version 
                 c  - create libft.a 
