@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:44:22 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/18 15:59:40 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/18 16:07:34 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,26 +153,26 @@ char	**ft_split(char *str, char *charset)
 	return (t);
 }
 
-int	main(void)
-{
-	char	str[] = "hello__this__is__a__test";
-	char	charset[] = "__";
-	char	**result;
-	int		i;
+// int	main(void)
+// {
+// 	char	str[] = "hello__this__is__a__test";
+// 	char	charset[] = "__";
+// 	char	**result;
+// 	int		i;
 
-	result = ft_split(str, charset);
-	i = 0;
-	while (result[i] != NULL)
-	{
-		printf("Substring %d: %s\n", i + 1, result[i]);
-		i++;
-	}
-	i = 0;
-	while (result[i] != NULL)
-	{
-		free(result[i]);
-		i++;
-	}
-	free(result);
-	return (0);
-}
+// 	result = ft_split(str, charset);
+// 	i = 0;
+// 	while (result[i] != NULL)
+// 	{
+// 		printf("Substring %d: %s\n", i + 1, result[i]);
+// 		i++;
+// 	}
+// 	i = 0;
+// 	while (result[i] != NULL)
+// 	{
+// 		free(result[i]);
+// 		i++;
+// 	}
+// 	free(result);
+// 	return (0);
+// }
