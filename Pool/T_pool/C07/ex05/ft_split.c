@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:44:22 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/18 15:56:05 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/18 15:59:40 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,33 @@ int	ft_calc(char *t, char *sp, int *s5)
 	}
 	return (++count);
 }
+
+// int	ft_check(char *str, char *charset, int s)
+// {
+// 	int	i;
+// 	int	j;
+// 	int	f;
+
+// 	i = 0;
+// 	j = 0;
+// 	f = 0;
+// 	if (str[i] == '\0')
+// 		f = 2;
+// 	else if (str[i] == charset[i])
+// 	{
+// 		while (i < s&&str[i])
+// 		{
+// 			if (str[i] == charset[i])
+// 				j++;
+// 			else
+// 				break ;
+// 			i++;
+// 		}
+// 		if (i == s)
+// 			f = 1;
+// 	}
+// 	return (f);
+// }
 
 int	ft_check(char *str, char *charset, int s)
 {
