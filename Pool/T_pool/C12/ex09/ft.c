@@ -6,24 +6,25 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:53:58 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/22 04:56:14 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/22 22:30:46 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-int	main(int argc, char**argv)
+int	main()
 {
 	int		i;
 	int		*data;
 	t_list	*list;
 	t_list	*ptr;
-	t_list	*tmp;
+	// t_list	*tmp;
+	void	(*free_fct)(void *);
 
 	// creat list
 	list = NULL;
-	i = 1;
-	while (i <= 15)
+	i = 0;
+	while (i < 15)
 	{
 		data = malloc(sizeof(int));
 		if (data)
@@ -33,38 +34,40 @@ int	main(int argc, char**argv)
 		}
 		i++;
 	}
-		// print size
+	
+	// print size
 	printf("size = %i\n\n", ft_list_size(list));
-		// print list
+	
+	// print list
 	ptr = list;
 	while (ptr != NULL)
 	{
 		printf("data = %i\n", *(int *)ptr->data);
 		ptr = ptr->next;
 	}
-		//print last elemnt
-	ptr = ft_list_last(list);
-	printf("\nlast 1 = %i\n", *(int *)ptr->data);
-	printf("\n---------------\n\n");
-		
-	    		//  strings
-	// int		index=0;
-	// t_list	*current;
-	// current = ft_list_push_strs(argc, argv);
-	// while (current != 0)
-	// {
-	// 	printf("list[%d] = $%s$\n", index++, (char *)current->data);
-	// 	current = current->next;
-	// }
 	
+	// reverse list	
+	ft_list_reverse(&list);
 	ptr = list;
 	while (ptr)
 	{
-		tmp = ptr;
+		printf("data = %i\n", *(int *)ptr->data);
 		ptr = ptr->next;
-		free(tmp->data);
-		free(tmp);
 	}
+
+	printf("\n---------------\n\n");
+	
+	
+	free_fct = ft_free;
+	ft_list_clear(list, free_fct);
+	// ptr = list;
+	// while (ptr)
+	// {
+	// 	tmp = ptr;
+	// 	ptr = ptr->next;
+	// 	free(tmp->data);
+	// 	free(tmp);
+	// }
 }
 
 t_list	*ft_create_elem(void *data)
@@ -139,3 +142,51 @@ t_list	*ft_list_push_strs(int size, char **strs)
 		ft_list_push_front(&list, strs[i++]);
 	return (list);
 }
+void	ft_free(void *data)
+{
+	free(data);
+}
+
+void	ft_list_clear(t_list *begin_list, void (*free_fct)(void *))
+{
+	t_list	*ptr;
+
+	while (begin_list)
+	{
+		ptr = begin_list;
+		begin_list = begin_list->next;
+		free_fct(ptr->data);
+		free(ptr);
+	}
+}
+t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (begin_list)
+	{
+		if (i++ == nbr)
+			return (begin_list);
+		begin_list = begin_list->next;
+	}
+	return (NULL);
+}
+void	ft_list_reverse(t_list **begin_list)
+{
+	t_list	*prev;
+	t_list	*cr;
+	t_list	*next;
+
+	prev = NULL;
+	cr = *begin_list;
+	while (cr)
+	{
+		next = cr->next;
+		cr->next = prev;
+		prev = cr;
+		cr = next;
+	}
+	*begin_list = prev;
+}
+

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_clear.c                                    :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 04:57:14 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/22 13:54:14 by Noctis           ###   ########.fr       */
+/*   Created: 2024/09/22 14:34:13 by Noctis            #+#    #+#             */
+/*   Updated: 2024/09/22 22:29:28 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_free(void *data)
+void	ft_list_reverse(t_list **begin_list)
 {
-	free(data);
-}
+	t_list	*prev;
+	t_list	*cr;
+	t_list	*next;
 
-void	ft_list_clear(t_list *begin_list, void (*free_fct)(void *))
-{
-	t_list	*ptr;
-
-	while (begin_list)
+	prev = NULL;
+	cr = *begin_list;
+	while (cr)
 	{
-		ptr = begin_list;
-		begin_list = begin_list->next;
-		free_fct(ptr->data);
-		free(ptr);
+		next = cr->next;
+		cr->next = prev;
+		prev = cr;
+		cr = next;
 	}
+	*begin_list = prev;
 }
