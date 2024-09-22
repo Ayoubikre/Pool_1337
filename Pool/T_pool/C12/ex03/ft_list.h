@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:51:18 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/21 02:09:22 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/22 02:07:51 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ typedef struct s_list
 
 t_list	*ft_create_elem(void *data);
 void	ft_list_push_front(t_list **begin_list, void *data);
+int	ft_list_size(t_list *begin_list);
 
 #endif
