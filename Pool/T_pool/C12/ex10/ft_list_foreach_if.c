@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_list_foreach_if.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 17:51:18 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/22 02:22:50 by Noctis           ###   ########.fr       */
+/*   Created: 2024/09/22 22:45:55 by Noctis            #+#    #+#             */
+/*   Updated: 2024/09/22 22:53:07 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "ft_list.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_list
+void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
+		void *data_ref, int (*cmp)())
 {
-	struct s_list	*next;
-	void			*data;
-}					t_list;
+	t_list	*list_ptr;
 
-t_list	*ft_create_elem(void *data);
-void	ft_list_push_front(t_list **begin_list, void *data);
-int	ft_list_size(t_list *begin_list);
-t_list	*ft_list_last(t_list *begin_list);
-
-#endif
+	list_ptr = begin_list;
+	while (list_ptr)
+	{
+		if ((*cmp)(list_ptr->data, data_ref) == 0)
+			(*f)(list_ptr->data);
+		list_ptr = list_ptr->next;
+	}
+}

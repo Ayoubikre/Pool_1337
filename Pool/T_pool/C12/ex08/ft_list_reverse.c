@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 14:34:13 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/22 22:29:28 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/22 22:35:06 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_list_reverse(t_list **begin_list)
 	t_list	*cr;
 	t_list	*next;
 
+	if (*begin_list == 0)
+		return ;
 	prev = NULL;
 	cr = *begin_list;
 	while (cr)

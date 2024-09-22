@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_list_find.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 17:51:18 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/21 02:09:22 by Noctis           ###   ########.fr       */
+/*   Created: 2024/09/22 23:00:08 by Noctis            #+#    #+#             */
+/*   Updated: 2024/09/22 23:03:35 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "ft_list.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_list
+t_list	*ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
 {
-	struct s_list	*next;
-	void			*data;
-}					t_list;
+	t_list	*list_ptr;
 
-t_list	*ft_create_elem(void *data);
-void	ft_list_push_front(t_list **begin_list, void *data);
-
-#endif
+	list_ptr = begin_list;
+	while (list_ptr)
+	{
+		if ((*cmp)(list_ptr->data, data_ref) == 0)
+			return (list_ptr);
+		list_ptr = list_ptr->next;
+	}
+	return (NULL);
+}

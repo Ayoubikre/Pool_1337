@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 17:51:18 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/21 02:30:04 by Noctis           ###   ########.fr       */
+/*   Created: 2024/09/22 22:32:08 by Noctis            #+#    #+#             */
+/*   Updated: 2024/09/22 22:42:44 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "ft_list.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_list
+void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
-	struct s_list	*next;
-	void			*data;
-}					t_list;
+	t_list	*list_ptr;
 
-t_list	*ft_create_elem(void *data);
-
-#endif
+	list_ptr = begin_list;
+	while (list_ptr)
+	{
+		(*f)(list_ptr->data);
+		list_ptr = list_ptr->next;
+	}
+}

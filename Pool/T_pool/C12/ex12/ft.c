@@ -6,12 +6,11 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:53:58 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/22 22:30:46 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/22 23:04:28 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
-
 int	main()
 {
 	int		i;
@@ -46,6 +45,7 @@ int	main()
 		ptr = ptr->next;
 	}
 	
+	printf("\n---------------\n\n");
 	// reverse list	
 	ft_list_reverse(&list);
 	ptr = list;
@@ -55,8 +55,6 @@ int	main()
 		ptr = ptr->next;
 	}
 
-	printf("\n---------------\n\n");
-	
 	
 	free_fct = ft_free;
 	ft_list_clear(list, free_fct);
@@ -190,3 +188,42 @@ void	ft_list_reverse(t_list **begin_list)
 	*begin_list = prev;
 }
 
+void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
+{
+	t_list	*list_ptr;
+
+	list_ptr = begin_list;
+	while (list_ptr)
+	{
+		(*f)(list_ptr->data);
+		list_ptr = list_ptr->next;
+	}
+}
+
+void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
+		void *data_ref, int (*cmp)())
+{
+	t_list	*list_ptr;
+
+	list_ptr = begin_list;
+	while (list_ptr)
+	{
+		if ((*cmp)(list_ptr->data, data_ref) == 0)
+			(*f)(list_ptr->data);
+		list_ptr = list_ptr->next;
+	}
+}
+
+t_list	*ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
+{
+	t_list	*list_ptr;
+
+	list_ptr = begin_list;
+	while (list_ptr)
+	{
+		if ((*cmp)(list_ptr->data, data_ref) == 0)
+			return (list_ptr);
+		list_ptr = list_ptr->next;
+	}
+	return (NULL);
+}
