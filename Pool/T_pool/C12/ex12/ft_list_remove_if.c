@@ -6,12 +6,11 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 23:06:32 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/22 23:06:53 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/22 23:13:59 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(),
 		void (*free_fct)(void *))
 {
-    
 }
