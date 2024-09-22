@@ -9,7 +9,7 @@ INCS	= includes
 head = $(shell find ./includes -name "*.h" -type f)
 # head = $(wildcard ./includes/*.h)
 
-srcs = $(shell find ./srcs -name "*.c" -type f)
+srcs = $(shell find ./src -name "*.c" -type f)
 # srcs = $(wildcard ./srcs/*.c)
 
 objc = $(srcs:.c=.o)
