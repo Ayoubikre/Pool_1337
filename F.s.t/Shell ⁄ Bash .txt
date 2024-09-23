@@ -711,5 +711,12 @@ objc = $(srcs:.c=.o)
 
 
 
-________________________________  8. NEXT :  ________________________________
-.
+________________________________  8. C  :  ________________________________
+
+// an array of functions to run dynamcly
+
+// Function pointer array to simplify a large number of operations  
+        int (*operations[])(int, int) = {add, multiply, subtract, divide};
+
+// Easily call the right operation based on input or other logic
+        printf("Result: %d\n", operations[choice](3, 5));
