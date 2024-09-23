@@ -6,7 +6,7 @@
 /*   By: Noctis <Noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:53:58 by Noctis            #+#    #+#             */
-/*   Updated: 2024/09/22 23:15:23 by Noctis           ###   ########.fr       */
+/*   Updated: 2024/09/23 01:43:40 by Noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,22 @@ int	main()
 		printf("data = %i\n", *(int *)ptr->data);
 		ptr = ptr->next;
 	}
+	
+	printf("\n------**--------\n\n");
+	// delet data 
 
+	int		*modulo = malloc(sizeof(int));
+	*modulo = 0;
+	free_fct=ft_free;
+	ft_list_remove_if(&list, modulo, &compare_modulo, free_fct);
+	ptr = list;
+	while (ptr)
+	{
+		printf("data = %i\n", *(int *)ptr->data);
+		ptr = ptr->next;
+	}
+
+	printf("\n---------------\n\n");
 	
 	free_fct = ft_free;
 	ft_list_clear(list, free_fct);
@@ -226,4 +241,9 @@ t_list	*ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
 		list_ptr = list_ptr->next;
 	}
 	return (NULL);
+}
+
+int		compare_modulo(void *data, void *data_ref)
+{
+	return (*((int *)data) % *((int *)data_ref));
 }
