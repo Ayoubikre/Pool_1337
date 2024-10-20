@@ -11,16 +11,16 @@ target = t
 all: $(target) clean
 
 $(target): $(objc)
-	@$(cc) $(cflags) -o $(target) $(objc)
+	$(cc) $(cflags) -o $(target) $(objc)
 
 %.o: %.c
-	@$(cc) $(cflags) -c -o $@ $<
+	$(cc) $(cflags) -c -o $@ $<
 
 clean:
-	@rm -rf *.o
+	rm -rf *.o
 
 re: 
-	@rm -rf $(target)
-	@make all
+	rm -rf $(target)
+	make all
 
 
